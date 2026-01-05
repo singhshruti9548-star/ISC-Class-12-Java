@@ -28,18 +28,22 @@ class Change
             {
             char x= (char) (ch-32);// case conversion via type Casting
             return x;
-            }
-        }
+            } 
+            return ch;
+        
     }
     void recchange(int pos)
     {
         char ch;
-        if(pos>-1)
+        if(pos<0)
+        return;
+        else
         {
             ch= str.charAt(pos);
             ch= caseconvert(ch);
-            newstr = newstr+ recchange(pos-1);
+            newstr = ch+ newstr;
         }
+        recchange(pos-1);
     }
     void display()
     {
@@ -50,10 +54,16 @@ class Change
     {
         Change obj = new Change();
         obj.inputword();
-        obj.recchange(len-1);
+        obj.recchange(obj.len-1);
         obj.display();
     }
 }
+
+
+    
+    
+      
+            
 
 
     
